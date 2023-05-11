@@ -2,6 +2,29 @@
 
 {% block content %}
 
-<h1>Hello World!</h1>
+{% if api %}
+	{% if api == "Error..." %}
+		There was an error, please try again...
+	{% else %}
+
+
+    <div class="container py-4 {{category_color}}">
+        <div class="p-5 mb-4 rounded-3 ">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">{{ api.0.Category.Name }}</h1>
+            <p class="col-md-8 fs-4">Current {{ api.0.ReportingArea }} Air Quality: {{ api.0.AQI }}</p>
+            <p>{{ category_description}}</p>
+          </div>
+        </div>
+    </div>
+  
+  
+
+
+
+		
+	{% endif %}
+
+{% endif %}
 
 {% endblock %}
